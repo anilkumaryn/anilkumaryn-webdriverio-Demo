@@ -45,6 +45,7 @@ describe('My Login application', () => {
         //browser.getWindowHandle();
         var windowHandles = browser.getWindowHandles()
         console.log(windowHandles);
+        
 
         const addToCart= await $('//button[@class="_2KpZ6l _2U9uOA _3v1-ww"]')
         await addToCart.click();
