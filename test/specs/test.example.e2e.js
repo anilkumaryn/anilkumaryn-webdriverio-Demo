@@ -1,10 +1,6 @@
 const LoginPage = require('../../login.page');
 const securePage = require('../../secure.page');
-//const laptopPage= require('../../laptop.page');
-// import laptopPage from '../pageobjects/laptop.page'
-//const searchPage = require('../../search.page');
-//const searchPage = require('');
-//const { searchInput, searchBtn } = require('../../search.page');
+
 
 describe('My Login application', () => {
     it('it should login with valid credentials', async () => {
@@ -19,7 +15,9 @@ describe('My Login application', () => {
         //await expect(securePage.flipkarHomeTitle).toHaveTextContaining(
        //'Online Shopping Site for Mobiles, Electronics, Furniture, Grocery, Lifestyle, Books & More. Best Offers!');
     });
-
+ 
+});
+describe('Laptop Page and Product Validations', () => {
     it('it should search and verfiy laptops page',async() => {
         //to search in input filed and verfiy laptops page is displayed 
         const searchInput = await $('//input[@placeholder="Search for products, brands and more"]');
@@ -42,19 +40,22 @@ describe('My Login application', () => {
         await submitBtn.click();
         const parentWindow=browser.getWindowHandle();
         console.log(" parentWindow browser id : "+ await parentWindow)
-        const selelaptop = await $('//*[@id="container"]/div/div[3]/div[1]/div[2]/div[2]/div/div/div/a/div[2]');
-        await selelaptop.click();
+        // const selelaptop = await $('//*[@id="container"]/div/div[3]/div[1]/div[2]/div[2]/div/div/div/a/div[2]');
+        // await selelaptop.click();
         
         browser.pause(3000)
         //const addTocart = await $('//button[normalize-space()="ADD TO CART"]');
        // await addTocart.click();
         const hplaptop= await $('//span[normalize-space()="14s-dk0093AU"]');
         await expect(hplaptop).toBeExisting();
-
-
-       
     });
+   
 
+});
+    
+
+
+describe('My application Logout', () => {
     it('it should logout from Flipkart',async() => {
 
         const accId = await $('//div[contains(text(),"Test")]');
@@ -67,8 +68,5 @@ describe('My Login application', () => {
         await expect(loginpg).toHaveTextContaining("Login");
 
     });
-    
+
 });
-    
-
-
