@@ -1,14 +1,17 @@
 const LoginPage = require('../../login.page');
 const securePage = require('../../secure.page');
+//const laptopPage= require('../../laptop.page');
+// import laptopPage from '../pageobjects/laptop.page'
 //const searchPage = require('../../search.page');
 //const searchPage = require('');
 //const { searchInput, searchBtn } = require('../../search.page');
 
 describe('My Login application', () => {
-    it('should login with valid credentials', async () => {
+    it('it should login with valid credentials', async () => {
         await LoginPage.open();
 
         await LoginPage.login('9945833924', 'qwerty@12345');
+        await browser.maximizeWindow();
         
         await expect(securePage.accountDisplayed).toBeExisting();
         await expect(securePage.accountDisplayed).toHaveTextContaining('Test');
@@ -21,8 +24,6 @@ describe('My Login application', () => {
         //to search in input filed and verfiy laptops page is displayed 
         const searchInput = await $('//input[@placeholder="Search for products, brands and more"]');
         await searchInput.setValue('Laptops');
-       
-    
         const searchBtn = await $('//button[@class="L0Z3Pu"]');
         await searchBtn.click();
         const laptops= await $('//h1[normalize-space()="Laptops"]');
@@ -33,27 +34,41 @@ describe('My Login application', () => {
         await expect(laptops).toHaveTextContaining('Laptops');
     //   await expect(searchPage.searchInput).toHaveTextContaining('laptop')
     });
-    it('it should add to cart on searching and selecting Hp laptop',async() =>{
+    it('it should select Hp laptop',async() => {
         
         const searchlaptops = await $('//input[@title="Search for products, brands and more"]');
-        await searchlaptops.setValue('LapHP 14s Core i3 11th Gen - (8 GB/256 GB SSD/Windows)tops');
+        await searchlaptops.setValue('14s-dk0093AU');
         const submitBtn = await $('//button[@type="submit"]');
         await submitBtn.click();
-
-        const hplaptop= await $('//div[contains(text(),"HP 14s Core i3 11th Gen - (8 GB/256 GB SSD/Windows")]');
-        await hplaptop.click();
-        //browser.getWindowHandle();
-        var windowHandles = browser.getWindowHandles()
-        console.log(windowHandles);
+        const parentWindow=browser.getWindowHandle();
+        console.log(" parentWindow browser id : "+ await parentWindow)
+        const selelaptop = await $('//*[@id="container"]/div/div[3]/div[1]/div[2]/div[2]/div/div/div/a/div[2]');
+        await selelaptop.click();
         
+        browser.pause(3000)
+        //const addTocart = await $('//button[normalize-space()="ADD TO CART"]');
+       // await addTocart.click();
+        const hplaptop= await $('//span[normalize-space()="14s-dk0093AU"]');
+        await expect(hplaptop).toBeExisting();
 
-        const addToCart= await $('//button[@class="_2KpZ6l _2U9uOA _3v1-ww"]')
-        await addToCart.click();
 
+       
     });
 
+    it('it should logout from Flipkart',async() => {
 
+        const accId = await $('//div[contains(text(),"Test")]');
+        await accId.moveTo();
+        
+        const logout = await $('//div[normalize-space()="Logout"]');
+        await logout.click();
+        browser.pause(1000);
+        const loginpg = await $('//span[@class="_36KMOx"]//span[contains(text(),"Login")]');
+        await expect(loginpg).toHaveTextContaining("Login");
 
+    });
+    
 });
     
+
 
