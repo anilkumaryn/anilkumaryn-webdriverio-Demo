@@ -1,33 +1,21 @@
 
-class getWindowHandles { 
-
-    async getWindowHandles() {
-    var parentGUID = browser.getWindowHandle();
-        var allGUID = browser.getWindowHandles();
-    var ID = browser.getWindowHandles();
-    browser.pause(3000)
-    browser.switchToWindow(parentWindow);
-    console.log("window handles are :"+ID)
-    var newhandel;
+describe('Handling Multiple Windows switching to child window and then switching to parent window back',async ()=> {
+    it('should make switching from parent to child and child to parent window', async() => {    
+    browser.url('https://www.flipkart.com/')
+    var parentWindow = browser.getWindowHandle()
+    const hplaptop= await $('//span[normalize-space()="14s-dk0093AU"]');
+    await hplaptop.click();
+    await browser.pause(3000)
+    var ID = await browser.getWindowHandles()
     for(var i = 0; i< ID.length; i++){
-        console.log(await ID.length)
-        if( await ID[i]!= await parentWindow){
-             newhandel=await ID[i];
-           // browser.switchToWindow( ID[i])
-          //  browser.maximizeWindow()
-          
+        if( awaitID[i]!=await parentWindow){
+            await browser.switchToWindow(ID[i])
+            await browser.maximizeWindow()
             break;
         }
     }
-
-    console.log("*****"+await newhandel);
-    browser.switchToWindow(await ID[1]);
-}
-    
-    
-
-
-
-    }
-
-export default new AddToCartPage();
+    await browser.pause(3000)
+    await browser.switchToWindow(parentWindow)
+    await browser.pause(3000)
+})
+})
