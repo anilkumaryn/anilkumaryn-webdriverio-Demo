@@ -1,9 +1,11 @@
 const LoginPage = require('../../login.page');
 const securePage = require('../../secure.page');
-
+//import allureReporter from '@wdio/allure-reporter'
+//const { addFeature } = require('@wdio/allure-reporter').default
 
 describe('My Login application', () => {
     it('it should login with valid credentials', async () => {
+      // allureReporter.addFeature('Login Feature');
         await LoginPage.open();
 
         await LoginPage.login('9945833924', 'qwerty@12345');
@@ -19,6 +21,7 @@ describe('My Login application', () => {
 });
 describe('Laptop Page and Product Validations', () => {
     it('it should search and verfiy laptops page',async() => {
+       //allureReporter.addFeature('Page Feature');
         //to search in input filed and verfiy laptops page is displayed 
         const searchInput = await $('//input[@placeholder="Search for products, brands and more"]');
         await searchInput.setValue('Laptops');
@@ -33,7 +36,7 @@ describe('Laptop Page and Product Validations', () => {
     //   await expect(searchPage.searchInput).toHaveTextContaining('laptop')
     });
     it('it should select Hp laptop',async() => {
-        
+       //allureReporter.addFeature('search Feature');
         const searchlaptops = await $('//input[@title="Search for products, brands and more"]');
         await searchlaptops.setValue('14s-dk0093AU');
         const submitBtn = await $('//button[@type="submit"]');
@@ -55,9 +58,9 @@ describe('Laptop Page and Product Validations', () => {
     
 
 
-describe('My application Logout', () => {
+describe('My Application Logout', () => {
     it('it should logout from Flipkart',async() => {
-
+      // allureReporter.addFeature('Logout Feature');
         const accId = await $('//div[contains(text(),"Test")]');
         await accId.moveTo();
         

@@ -1,0 +1,21 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1624220882764' stop='1624220884796'>
+    <name>My application Logout</name>
+    <title>My application Logout</title>
+    <test-cases>
+        <test-case start='1624220882764' status='passed' stop='1624220884795'>
+            <name>it should logout from Flipkart</name>
+            <title>it should logout from Flipkart</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-91.0.4472.114'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>

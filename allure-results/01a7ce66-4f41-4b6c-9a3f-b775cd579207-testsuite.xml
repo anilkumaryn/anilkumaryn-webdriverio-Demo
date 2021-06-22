@@ -1,0 +1,35 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1624220876613' stop='1624220882759'>
+    <name>Laptop Page and Product Validations</name>
+    <title>Laptop Page and Product Validations</title>
+    <test-cases>
+        <test-case start='1624220876613' status='passed' stop='1624220881722'>
+            <name>it should search and verfiy laptops page</name>
+            <title>it should search and verfiy laptops page</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-91.0.4472.114'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1624220881723' status='passed' stop='1624220882759'>
+            <name>it should select Hp laptop</name>
+            <title>it should select Hp laptop</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-91.0.4472.114'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>

@@ -14,18 +14,18 @@
 
     get LTpage () { return $("//h1[normalize-space()='Laptops']") }
     
-        // async searchInput () {
-        //     await (await this.searchInput).setValue('Laptops');
-        // }
-        // async searchBtn () {
-        // await (await this.searchBtn).click();
-        //  }   
-        // async laptoplink () {
-        //     await (await this.laptoplink).click();
-        // } 
-        // async LTpage () {
-        //     await (await this.LTpage).isDisplayed();
-        // }
+        async searchInput (name) {
+            await (await this.searchInput).setValue(name);
+        }
+        async searchBtn () {
+        await (await this.searchBtn).click();
+         }   
+        async laptoplink () {
+            await (await this.laptoplink).click();
+        } 
+        async LTpage () {
+            await (await this.LTpage).isDisplayed();
+        }
 }
 
 export default new laptopPage();
